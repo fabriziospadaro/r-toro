@@ -4,6 +4,8 @@ export const DEF_BLACKLIST = [
     "my porfolio is up",
     "my porfolio is down",
     "i closed this trade",
+    "btc",
+    "dodge"
 ]
 
 export function validContent(content) {

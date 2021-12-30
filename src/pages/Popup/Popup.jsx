@@ -1,6 +1,5 @@
 import React from 'react';
-import FeedFilter from '../../Sections/feedFilter';
-
+import FeedFilter from '../../sections/feedFilter';
 import './Popup.css';
 
 const Popup = () => {

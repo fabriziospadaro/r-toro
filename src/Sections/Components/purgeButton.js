@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function PurgeButton() {
+export default function PurgeButton({ setPostHandler }) {
 
-    function removeContent() {
+    function removeContentHandler() {
         chrome.tabs.query({
             active: true,
             currentWindow: true
@@ -10,12 +10,15 @@ export default function PurgeButton() {
             chrome.tabs.sendMessage(
                 tabs[0].id,
                 { from: 'popup', subject: 'purge-spam' },
-                (la) => console.log(la)
+                (response) => {
+                    console.log(response);
+                    setPostHandler(response);
+                }
             );
         });
     }
 
     return (
-        <button onClick={() => removeContent()}>Ciao</button>
+        <button onClick={() => removeContentHandler()}>Purge</button>
     );
 }; 
