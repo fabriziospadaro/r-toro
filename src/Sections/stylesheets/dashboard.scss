@@ -1,0 +1,33 @@
+.header{
+  text-align: center;
+  width: 100%;
+  background-color: #383e55;
+  color: white;
+  h3{
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.features-list{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .feature-slot{
+    text-align: center;
+    color: white;
+    width: 130px;
+    height: 90px;
+    p{
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+}

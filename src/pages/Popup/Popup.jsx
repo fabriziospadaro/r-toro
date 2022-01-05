@@ -1,10 +1,12 @@
 import React from 'react';
-import FeedFilter from '../../sections/feedFilter';
-import './Popup.css';
+import Home from '../../Sections/Home';
+import './Popup.scss';
 
 const Popup = () => {
   return (
-    <FeedFilter />
+    <>
+      <Home />
+    </>
   );
 };
 

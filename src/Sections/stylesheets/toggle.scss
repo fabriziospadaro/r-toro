@@ -1,0 +1,96 @@
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button {
+  position: relative;
+  width: 74px;
+  height: 36px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.button.r,
+.button.r .layer {
+  border-radius: 100px;
+}
+
+.button.b2 {
+  border-radius: 2px;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: #ebf7fc;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+/* Button 13 */
+#button-13 .knobs:before,
+#button-13 .knobs:after,
+#button-13 .knobs span {
+  position: absolute;
+  top: 4px;
+  width: 20px;
+  height: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  border-radius: 2px;
+  transition: 0.3s ease all;
+}
+
+#button-13 .knobs:before,
+#button-13 .knobs:after {
+  color: #4e4e4e;
+  z-index: 1;
+}
+
+#button-13 .knobs:before {
+  content: "YES";
+  left: 4px;
+}
+
+#button-13 .knobs:after {
+  content: "NO";
+  right: 4px;
+}
+
+#button-13 .knobs span {
+  width: 25px;
+  left: 37px;
+  background-color: #383e55;
+  z-index: 2;
+}
+
+#button-13 .checkbox:checked + .knobs span {
+  left: 4px;
+  background-color: #7f86a1;
+}
+
+#button-13 .checkbox:checked ~ .layer {
+  background-color: #fcebeb;
+}

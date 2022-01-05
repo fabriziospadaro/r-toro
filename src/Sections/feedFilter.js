@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import PurgeButton from "./Components/purgeButton";
-
+import PurgeButton from "./components/purgeButton";
+import ToggleButton from "./Components/toggleButton";
+import "./stylesheets/accordion.scss";
 export default function FeedFilter() {
     const [postRemoved, setPostRemoved] = useState(0);
 
@@ -8,12 +9,36 @@ export default function FeedFilter() {
         setPostRemoved(removed);
     }
     return (
-        <>
-            <div>
-                <h1>Feed Filter</h1>
-                <PurgeButton setPostHandler={setPostHandler} />
-                {postRemoved !== 0 && <p>{postRemoved}</p>}
-            </div>
-        </>
+        <div className="accordion">
+            <ul>
+                <li>
+                    <div className="toggle">
+                        <ToggleButton />
+                    </div>
+                    <input className="expand" type="checkbox" defaultChecked={true} />
+                    <i></i>
+                    <h2>Block Users</h2>
+                    <p>This page was written in HTML and CSS. The CSS was compiled from SASS. I used Normalize as my CSS reset and -prefix-free to save myself some headaches. I haven't quite gotten the hang of Slim for compiling into HTML, but someday I'll use it since its syntax compliments that of SASS. Regardless, this could all be done in plain HTML and CSS.</p>
+                </li>
+                <li>
+                    <div className="toggle">
+                        <ToggleButton />
+                    </div>
+                    <input className="expand" type="checkbox" defaultChecked={true} />
+                    <i></i>
+                    <h2>How it Works</h2>
+                    <p>Using the sibling and checked selectors, we can determine the styling of sibling elements based on the checked state of the checkbox input element. One use, as demonstrated here, is an entirely CSS and HTML accordion element. Media queries are used to make the element responsive to different screen sizes.</p>
+                </li>
+                <li>
+                    <div className="toggle">
+                        <ToggleButton />
+                    </div>
+                    <input className="expand" type="checkbox" defaultChecked={true} />
+                    <i></i>
+                    <h2>Points of Interest</h2>
+                    <p>By making the open state default for when :checked isn't detected, we can make this system accessable for browsers that don't recognize :checked. The fallback is simply an open accordion. The accordion can be manipulated with Javascript (if needed) by changing the "checked" property of the input element.</p>
+                </li>
+            </ul>
+        </div>
     );
 };  
