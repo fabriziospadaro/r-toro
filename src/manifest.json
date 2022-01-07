@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Chrome Extension with React & Webpack",
+  "name": "rToro",
   "options_page": "options.html",
   "background": {
     "service_worker": "background.bundle.js"
@@ -12,7 +12,8 @@
   "permissions": [
     "tabs",
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "icons": {
     "128": "icon-128.png"

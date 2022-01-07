@@ -8,11 +8,14 @@ export const DEF_BLACKLIST = [
     "dodge"
 ]
 
-export function validContent(content) {
-    for (let w of DEF_BLACKLIST) {
-        if (content.includes(w)) {
+export function validContent(content, storeClient) {
+    let enabled = storeClient.get(["feedSettings", "blackListSettings", "enabled"]);
+    let blackList = storeClient.get(["feedSettings", "blackListSettings", "list"]).split("*");
+    if (!enabled || blackList[0] === "")
+        return true;
+    for (let w of blackList) {
+        if (content.includes(w))
             return false;
-        }
     }
     return true;
 }

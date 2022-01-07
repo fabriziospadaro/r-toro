@@ -10,6 +10,18 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
+  i{
+    position: fixed;
+    right: 10px;
+    top: 9px;
+    font-size: 29px;
+  }
+  i:hover{
+    color: tomato;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
 }
 
 .features-list{
@@ -28,6 +40,11 @@
     p{
       font-weight: bold;
       font-size: 14px;
+    }
+    p:hover{
+      color: tomato;
+      transition: color 0.3s ease;
+      cursor: pointer;
     }
   }
 }

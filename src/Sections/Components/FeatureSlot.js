@@ -1,10 +1,11 @@
 import React from "react"
-import ToggleButton from "./toggleButton"
-export default function FeatureSlot({ featureName, featureDescription }) {
+import NavigationManager from "../../libs/NavigationManager"
+import ToggleButton from "./ToggleButton"
+export default function FeatureSlot({ featureName, featureDescription, settingCmp, settingKeys }) {
   return (
     <div className="feature-slot">
-      <p>{featureDescription}</p>
-      <ToggleButton />
+      <p onClick={() => NavigationManager.nagivateTo(settingCmp)}>{featureDescription}</p>
+      <ToggleButton settingKeys={settingKeys} />
     </div>
   )
 }

@@ -1,8 +1,8 @@
 import React from "react"
 import "../stylesheets/navbar.scss"
 import NavigationManager from "../../libs/NavigationManager"
-import FeedFilter from "../feedFilter"
-export default function Navbar() {
+import FeedModeration from "../feedModeration";
+export default function Navbar({ showBackBtn }) {
   function navigateTo(dst) {
     document.getElementById("navHandle").checked = false;
     NavigationManager.nagivateTo(dst);
@@ -15,7 +15,7 @@ export default function Navbar() {
         <span></span>
         <span></span>
         <ul id="menu">
-          <a onClick={() => navigateTo(<FeedFilter />)}><li>Feed Filter</li></a>
+          <a onClick={() => navigateTo(<FeedModeration />)}><li>Feed Moderation</li></a>
           <a href="#"><li>Premarket</li></a>
           <a href="#"><li>Privacy</li></a>
           <a href="https://www.etoro.com/people/fabriziospadaro" target="_blank"><li>Copy me</li></a>
