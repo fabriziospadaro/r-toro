@@ -9,6 +9,7 @@ export default function Dahsboard() {
       <FeatureSlot featureName={"PreMarket"} featureDescription={"Pre Market"} settingCmp={<FeedModeration />} settingKeys={["preMarketSetting", "enabled"]} />
       <FeatureSlot featureName={"Darkmode"} featureDescription={"Dark Mode"} settingCmp={<FeedModeration />} settingKeys={["darkModeSetting", "enabled"]} />
       <FeatureSlot featureName={"Privacy"} featureDescription={"Privacy"} settingCmp={<FeedModeration />} settingKeys={["privacySetting", "enabled"]} />
+      <FeatureSlot featureName={"Spread"} featureDescription={"Spread"} settingCmp={<FeedModeration />} settingKeys={["spreadSetting", "enabled"]} />
     </div>
   )
 }

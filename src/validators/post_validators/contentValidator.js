@@ -10,8 +10,8 @@ export const DEF_BLACKLIST = [
 
 export function validContent(content, storeClient) {
     let enabled = storeClient.get(["feedSettings", "blackListSettings", "enabled"]);
-    let blackList = storeClient.get(["feedSettings", "blackListSettings", "list"]).split("*");
-    if (!enabled || blackList[0] === "")
+    let blackList = storeClient.get(["feedSettings", "blackListSettings", "list"])?.split("*");
+    if (!enabled || !blackList || blackList[0] === "")
         return true;
     for (let w of blackList) {
         if (content.includes(w))

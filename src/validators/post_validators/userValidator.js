@@ -6,8 +6,8 @@ export const DEF_USER_BLACKLIST = [
 
 export function validUser(user, storeClient) {
     let enabled = storeClient.get(["feedSettings", "userBlackListSettings", "enabled"]);
-    let blackList = storeClient.get(["feedSettings", "userBlackListSettings", "list"]).split("*");
-    if (!enabled || blackList[0] === "")
+    let blackList = storeClient.get(["feedSettings", "userBlackListSettings", "list"])?.split("*");
+    if (!enabled || !blackList || blackList[0] === "")
         return true;
     for (let w of blackList) {
         if (user.includes(w)) {

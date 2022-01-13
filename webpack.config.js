@@ -42,9 +42,6 @@ var options = {
     devtools: path.join(__dirname, 'src', 'pages', 'Devtools', 'index.js'),
     panel: path.join(__dirname, 'src', 'pages', 'Panel', 'index.jsx'),
   },
-  chromeExtensionBoilerplate: {
-    notHotReload: ['contentScript', 'devtools'],
-  },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.js',
@@ -199,4 +196,25 @@ if (env.NODE_ENV === 'development') {
   };
 }
 
-module.exports = options;
+var scssOptions = {
+  entry: { contentScss: path.join(__dirname, 'src', 'pages', 'Content', 'content.styles.scss') },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { outputPath: '../src/pages/Content/', name: '[name].css' }
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
+      }
+    ]
+  }
+}
+
+module.exports = [scssOptions, options];
