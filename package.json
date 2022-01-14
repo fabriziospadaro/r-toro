@@ -1,7 +1,7 @@
 {
-  "name": "r-toro",
-  "version": "4.2.0",
-  "description": "Etoro utilities and enanchements to make yoru trading life better",
+  "name": "etoro-plus",
+  "version": "0.0.0.1",
+  "description": "eToro Plus adds long awaited features such as dark mode, feed moderation, privacy settings, spread data, etc.. to the eToro website",
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -1,6 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "rToro",
+  "version": "0.0.0.3",
+  "name": "eToro Plus",
   "options_page": "options.html",
   "background": {
     "service_worker": "background.bundle.js"
@@ -9,11 +10,9 @@
     "default_popup": "popup.html",
     "default_icon": "icon-34.png"
   },
+  "description": "eToro Plus adds long awaited features such as dark mode, feed moderation, privacy settings, spread data, etc.. to the eToro website",
   "permissions": [
-    "tabs",
-    "activeTab",
-    "scripting",
-    "storage"
+    "tabs"
   ],
   "icons": {
     "128": "icon-128.png"
@@ -21,9 +20,7 @@
   "content_scripts": [
     {
       "matches": [
-        "http://*/*",
-        "https://*/*",
-        "<all_urls>"
+        "https://*.etoro.com/*"
       ],
       "js": [
         "contentScript.bundle.js"

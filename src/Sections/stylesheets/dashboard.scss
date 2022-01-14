@@ -18,7 +18,7 @@
     font-size: 29px;
   }
   i:hover{
-    color: tomato;
+    color: #ff6873;
     transition: color 0.3s ease;
     cursor: pointer;
   }
@@ -26,7 +26,6 @@
 
 .features-list{
   display: grid;
-  grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   margin-top: 10px;
@@ -42,7 +41,7 @@
       font-size: 14px;
     }
     p:hover{
-      color: tomato;
+      color: #ff6873;
       transition: color 0.3s ease;
       cursor: pointer;
     }
