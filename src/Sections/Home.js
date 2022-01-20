@@ -12,7 +12,7 @@ export default function Home() {
       <div className="header">
         <h3>eToro Plus</h3>
         <Navbar />
-        <i onClick={() => NavigationManager.nagivateTo(<Dahsboard />)} class="fas fa-home"></i>
+        <i onClick={() => NavigationManager.nagivateTo(<Dahsboard />)} className="fas fa-home"></i>
       </div>
       <div>{navigation}</div>
     </>

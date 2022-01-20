@@ -21,6 +21,7 @@ export default class SpreadClient {
     let mainListViewElement = $('[automation-id="watchlist-watchlist-sub-view-list"]')[0];
     let isListView = mainListViewElement?.className?.includes('list-view');
     if (isListView) {
+      this.addHeaderLabel();
       let tabletRowEls = $('[automation-id="watchlist-list-instruments-list"]');
       for (let rowElement of tabletRowEls) {
         let tableInfoEl = $(rowElement).find('[automation-id="watchlist-item-grid-instrument-buy-sell-container"]');
@@ -45,7 +46,7 @@ export default class SpreadClient {
           let buyPrice = $(btnBuyEl).find('[automation-id="buy-sell-button-rate-value"]').text().trim();
           let spreadPrice = Number(buyPrice) - Number(sellPrice);
           let spreadPercent = (spreadPrice / sellPrice) * 100;
-          this.addSpreadTextElement($(cardElement), spreadPrice, spreadPercent);
+          this.addSpreadTextElement($(cardElement).find("et-instrument-trading-card"), spreadPrice, spreadPercent, " - ");
         }
       }
     }
@@ -64,17 +65,17 @@ export default class SpreadClient {
       let buyPrice = $(buyBtnEl).find('.etoro-price-value').text().trim();
       let spreadPrice = Number(buyPrice) - Number(sellPrice);
       let spreadPercent = (spreadPrice / sellPrice) * 100;
-      this.addSpreadTextElement(cellNameEl, spreadPrice, spreadPercent);
+      this.addSpreadTextElement(cellNameEl, spreadPrice, spreadPercent, " - ");
     }
   }
 
-  addSpreadTextElement(parentElement, spreadPrice, spreadPercent) {
+  addSpreadTextElement(parentElement, spreadPrice, spreadPercent, separator = "\n") {
     let text =
-      '$' + this.toFixed(spreadPrice) + ' - ' + spreadPercent.toFixed(3) + '%';
+      '$' + this.toFixed(spreadPrice) + separator + spreadPercent.toFixed(3) + '%';
     let clsHelperPrice = 'etoro-helper-price';
     let priceNodeEl = parentElement.find('.' + clsHelperPrice)[0];
     if (!priceNodeEl) {
-      let priceNodeEl = document.createElement('span');
+      let priceNodeEl = document.createElement('div');
       priceNodeEl.className += clsHelperPrice;
       let node = document.createTextNode(text);
       priceNodeEl.appendChild(node);
@@ -96,6 +97,17 @@ export default class SpreadClient {
     }
   }
 
+  addHeaderLabel() {
+    if ($("[automation-id=\"watchlist-list-title-spread\"]").length === 0) {
+      let attr = $(".cell-spacing")[0].attributes[0].name;
+      let parent = $(".buy-sell-row-cell");
+      parent.append(`
+    <span ${attr} class="cell-spacing spread-helper"></span>
+    <span automation-id="watchlist-list-title-spread" class="spread-helper"> Spread </span>
+    `);
+    }
+  }
+
   toFixed(number) {
     let result;
     if (number > 1000)
@@ -111,6 +123,7 @@ export default class SpreadClient {
 
   reset() {
     $('.etoro-helper-price').remove();
+    $('.spread-helper').remove();
   }
 }
 

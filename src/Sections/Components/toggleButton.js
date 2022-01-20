@@ -15,7 +15,7 @@ export default function ToggleButton({ settingKeys }) {
   function loadToggleState() {
     return StoreManager.get(settingKeys).then(v => {
       if (v === undefined || v === null)
-        v = true;
+        v = false;
       document.getElementById(settingKeys.join("_")).checked = !v;
       setChecked(!v);
     });

@@ -16,7 +16,6 @@ export default class FeedModerationClient {
     let postCount = document.querySelectorAll(".post-item").length;
     if (this.storeClient.get(["feedSettings", "enabled"]) && postCount != this.lastPostCount) {
       this.lastPostCount = postCount;
-      console.log("Should moderete feed");
       return true;
     }
     return false;

@@ -6,15 +6,34 @@ const valueToStore = [];
 
 export default class StoreClient {
   constructor() {
-    this.k = "rToroSettings";
-    this.settings = JSON.parse(localStorage[this.k] || "{}");
+    this.k = "rToroSettings.";
+    //this.settings = JSON.parse(localStorage[this.k] || "{}");
+    this.settings = localStorage;
     this.afterSet = [];
   }
 
   get(keys) {
+    let raw = this.settings[this.k + keys.join(".")];
+    if (isNaN(+raw) === false)
+      return +raw;
+    else if (raw === "false" || raw === "true")
+      return raw === "true";
+    else
+      return raw;
+  }
+  set(keys, value) {
+    let key = keys.join(".");
+    console.log(key + " " + value);
+    this.settings[this.k + key] = value;
+    console.log(this.settings[this.k + key]);
+    localStorage.setItem(this.k + key, value);
+    for (let i = 0; i < this.afterSet.length; i++)
+      this.afterSet[i]();
+  }
+  /*
+  get(keys) {
     return this.hashDig(this.settings, keys);
   }
-
   set(keys, value) {
     let rootKey = keys[0];
     //initialize dictionary if root key does not exist
@@ -44,4 +63,5 @@ export default class StoreClient {
         return null;
     return lastDigged;
   }
+  */
 }

@@ -4,7 +4,7 @@ import ToggleButton from "./ToggleButton"
 export default function FeatureSlot({ featureName, featureDescription, settingCmp, settingKeys }) {
   return (
     <div className="feature-slot">
-      <p onClick={() => NavigationManager.nagivateTo(settingCmp)}>{featureDescription}</p>
+      <p onClick={() => settingCmp && NavigationManager.nagivateTo(settingCmp)}>{featureDescription}</p>
       <ToggleButton settingKeys={settingKeys} />
     </div>
   )

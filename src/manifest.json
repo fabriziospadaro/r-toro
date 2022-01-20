@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "version": "0.0.0.3",
+  "version": "0.0.0.7",
   "name": "eToro Plus",
   "options_page": "options.html",
   "background": {
@@ -11,9 +11,6 @@
     "default_icon": "icon-34.png"
   },
   "description": "eToro Plus adds long awaited features such as dark mode, feed moderation, privacy settings, spread data, etc.. to the eToro website",
-  "permissions": [
-    "tabs"
-  ],
   "icons": {
     "128": "icon-128.png"
   },

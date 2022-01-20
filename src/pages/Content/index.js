@@ -10,34 +10,37 @@ const darkMode = new DarkModeClient(client);
 const spread = new SpreadClient(client);
 //copia https://github.com/vanduc1102/etoro-helper
 setInterval(function () {
-    update();
+  update();
 }, 100);
 
 setInterval(function () {
-    privacyFilter.censor();
-    darkMode.darken();
+  privacyFilter.censor();
+  darkMode.darken();
 }, 10);
 
 chrome.runtime.onMessage.addListener((msg, sender, response) => {
-    if ((msg.from === 'session-manager-get')) {
-        response(client.get(msg.subject));
-    } else if ((msg.from === 'session-manager-set')) {
-        client.set(msg.subject.keys, msg.subject.value);
-        response(true);
-    }
+  if ((msg.from === 'session-manager-get')) {
+    response(client.get(msg.subject));
+  } else if ((msg.from === 'session-manager-set')) {
+    client.set(msg.subject.keys, msg.subject.value);
+    response(true);
+  }
+  else if ((msg.from === 'request-copy')) {
+    window.location.assign("https://www.etoro.com/people/fabriziospadaro");
+  }
 });
 
 
 function update() {
-    let path = currentPath();
-    if (path === "home" || path.includes("market"))
-        feedModeration.moderateFeedRoutine();
-    else if (path === "watchlists" || path.includes("portfolio")) {
-        spread.visualize(path);
-    }
+  let path = currentPath();
+  if (path === "home" || path.includes("market"))
+    feedModeration.moderateFeedRoutine();
+  else if (path === "watchlists" || path.includes("portfolio")) {
+    spread.visualize(path);
+  }
 }
 
 
 function currentPath() {
-    return window.location.pathname.replace("/", "");
+  return window.location.pathname.replace("/", "");
 }
