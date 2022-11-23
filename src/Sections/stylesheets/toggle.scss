@@ -7,7 +7,7 @@
   left: 0;
 }
 
-.button {
+.toggle-btn {
   position: relative;
   width: 74px;
   height: 36px;
@@ -15,12 +15,12 @@
   margin: auto;
 }
 
-.button.r,
-.button.r .layer {
+.toggle-btn.r,
+.toggle-btn.r .layer {
   border-radius: 100px;
 }
 
-.button.b2 {
+.toggle-btn.b2 {
   border-radius: 2px;
 }
 
@@ -46,10 +46,10 @@
   z-index: 1;
 }
 
-/* Button 13 */
-#button-13 .knobs:before,
-#button-13 .knobs:after,
-#button-13 .knobs span {
+/* toggle-btn 13 */
+#toggle-btn-13 .knobs:before,
+#toggle-btn-13 .knobs:after,
+#toggle-btn-13 .knobs span {
   position: absolute;
   top: 4px;
   width: 20px;
@@ -63,34 +63,46 @@
   transition: 0.3s ease all;
 }
 
-#button-13 .knobs:before,
-#button-13 .knobs:after {
+#toggle-btn-13 .knobs:before,
+#toggle-btn-13 .knobs:after {
   color: #4e4e4e;
   z-index: 1;
 }
 
-#button-13 .knobs:before {
+#toggle-btn-13 .knobs:before {
   content: "YES";
   left: 4px;
 }
 
-#button-13 .knobs:after {
+#toggle-btn-13 .knobs:after {
   content: "NO";
   right: 4px;
 }
 
-#button-13 .knobs span {
+#toggle-btn-13 .knobs span {
   width: 25px;
   left: 37px;
   background-color: #383e55;
   z-index: 2;
 }
 
-#button-13 .checkbox:checked + .knobs span {
+#toggle-btn-13 .checkbox:checked + .knobs span {
   left: 4px;
   background-color: #7f86a1;
 }
 
-#button-13 .checkbox:checked ~ .layer {
+#toggle-btn-13 .checkbox:checked ~ .layer {
   background-color: #ffffffc7;
+}
+
+* {
+  -webkit-box-sizing: unset !important;
+     -moz-box-sizing: unset !important;
+          box-sizing: unset !important;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: unset !important;
+     -moz-box-sizing: unset !important;
+          box-sizing: unset !important;
 }

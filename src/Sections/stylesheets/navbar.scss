@@ -99,10 +99,10 @@ nav{
  #menu
  {
    position: absolute;
-   width: 145px;
+   width: 171px;
    height: 100vh;
    margin: -100px 0 0 -50px;
-   padding-top: 125px;
+   padding-top: 110px;
    background: #383e55;
    list-style-type: none;
    -webkit-font-smoothing: antialiased;
@@ -114,10 +114,9 @@ nav{
    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
  }
  
- #menu li
- {
-   padding: 10px 10px;
-   font-size: 22px;
+ #menu li{
+   padding: 5px 10px;
+   font-size: 18px;
    font-weight: lighter;
  }
  

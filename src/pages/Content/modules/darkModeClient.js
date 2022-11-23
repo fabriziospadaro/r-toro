@@ -1,4 +1,3 @@
-import $ from "../../Popup/jquery-3.2.1.min.js";
 export default class DarkModeClient {
   constructor(storeClient) {
     this.storeClient = storeClient;
@@ -7,12 +6,12 @@ export default class DarkModeClient {
   }
 
   darken() {
-    if (this.storeClient.get(["darkModeSetting", "enabled"]))
-      $("body").addClass("dark--mode");
+    if (this.storeClient.get(["darkModeSetting", "enabled"], Boolean))
+      document.querySelector("body").classList.add("dark--mode");
   }
 
   reset() {
-    $("body").removeClass("dark--mode");
+    document.querySelector("body").classList.remove("dark--mode");
   }
 }
 

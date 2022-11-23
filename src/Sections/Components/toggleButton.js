@@ -1,28 +1,31 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import StoreManager from "../../libs/StoreManager";
-import "../stylesheets/toggle.scss"
+import "../stylesheets/toggle.scss";
+import { AppContex } from "../Home";
+import { enabledModules } from "../../config/config";
+
 export default function ToggleButton({ settingKeys }) {
   const [isChecked, setChecked] = useState(false);
+  const { setShow } = useContext(AppContex);
 
   useEffect(() => {
     loadToggleState();
   }, [])
 
   function toggleFeatureHandler(e) {
+    setShow(true);
     StoreManager.set(settingKeys, !e.target.checked);
   }
 
   function loadToggleState() {
-    return StoreManager.get(settingKeys).then(v => {
-      if (v === undefined || v === null)
-        v = false;
+    return StoreManager.get(settingKeys, Boolean).then(v => {
       document.getElementById(settingKeys.join("_")).checked = !v;
       setChecked(!v);
     });
   }
 
   return (
-    <div className="button b2" id="button-13">
+    <div className="toggle-btn b2" id="toggle-btn-13">
       <input
         type="checkbox"
         id={settingKeys.join("_")}

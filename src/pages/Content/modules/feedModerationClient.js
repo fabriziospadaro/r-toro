@@ -14,7 +14,7 @@ export default class FeedModerationClient {
 
   get moderationShouldHappen() {
     let postCount = document.querySelectorAll(".post-item").length;
-    if (this.storeClient.get(["feedSettings", "enabled"]) && postCount != this.lastPostCount) {
+    if (this.storeClient.get(["feedSettings", "enabled"], Boolean) && postCount != this.lastPostCount) {
       this.lastPostCount = postCount;
       return true;
     }
@@ -27,7 +27,7 @@ export default class FeedModerationClient {
   }
 
   moderateFeed() {
-    if (this.storeClient.get(["feedSettings", "enabled"])) {
+    if (this.storeClient.get(["feedSettings", "enabled"], Boolean)) {
       let purged = 0;
       this.posts = document.querySelectorAll(".post-item");
       for (let i = 0; i < this.posts.length; i++) {
@@ -41,7 +41,7 @@ export default class FeedModerationClient {
           purged++;
         }
       }
-      console.log("Moderated: " + purged);
+      //console.log("Moderated: " + purged);
       return purged;
     }
   }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import StoreManager from "../../libs/StoreManager";
+import $ from "jquery";
 export default function GenericBlacklist({ listKeyPath, description }) {
   const [list, setList] = useState("");
 
@@ -8,7 +9,7 @@ export default function GenericBlacklist({ listKeyPath, description }) {
   }, []);
 
   function loadWords() {
-    StoreManager.get(listKeyPath).then(response => {
+    StoreManager.get(listKeyPath, String).then(response => {
       setList(response);
       initSelectize();
     });

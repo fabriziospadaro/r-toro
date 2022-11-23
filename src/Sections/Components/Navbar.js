@@ -16,8 +16,6 @@ export default function Navbar({ showBackBtn }) {
         <span></span>
         <ul id="menu">
           <a onClick={() => navigateTo(<FeedModeration />)}><li>Feed Moderation</li></a>
-          <a href="#"><li>Premarket</li></a>
-          <a href="#"><li>Privacy</li></a>
           <a href="https://www.etoro.com/people/fabriziospadaro" target="_blank"><li>Copy me</li></a>
         </ul>
       </div>

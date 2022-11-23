@@ -3,7 +3,7 @@ import ToggleButton from "./ToggleButton";
 import "../stylesheets/accordion.scss"
 export default function FeedSetting({ title, content, settingKeys }) {
   return (
-    <li>
+    <li style={{ "zIndex": 0 }}>
       <div className="toggle">
         <ToggleButton settingKeys={settingKeys} />
       </div>

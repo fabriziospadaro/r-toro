@@ -1,4 +1,5 @@
-import $ from "../../Popup/jquery-3.2.1.min.js";
+import $ from "jquery";
+
 export default class SpreadClient {
   constructor(storeClient) {
     this.storeClient = storeClient;
@@ -8,7 +9,7 @@ export default class SpreadClient {
 
   visualize(path) {
     //should only do it after page changed
-    if (this.storeClient.get(["spreadSetting", "enabled"])) {
+    if (this.storeClient.get(["spreadSetting", "enabled"], Boolean)) {
       if (path === "watchlists") {
         this.initWatchListView();
       } else {
@@ -22,19 +23,19 @@ export default class SpreadClient {
     let isListView = mainListViewElement?.className?.includes('list-view');
     if (isListView) {
       this.addHeaderLabel();
-      let tabletRowEls = $('[automation-id="watchlist-list-instruments-list"]');
+
+      let tabletRowEls = $('.et-table-row');
       for (let rowElement of tabletRowEls) {
         let tableInfoEl = $(rowElement).find('[automation-id="watchlist-item-grid-instrument-buy-sell-container"]');
         let sellBtnEl = $(tableInfoEl).find('[automation-id="buy-sell-button-container-sell"]');
         let buyBtnEl = $(tableInfoEl).find('[automation-id="buy-sell-button-container-buy"]');
-        if (!sellBtnEl || !buyBtnEl) {
+        if (!sellBtnEl || !buyBtnEl)
           return;
-        }
         let sellPrice = $(sellBtnEl).find('[automation-id="buy-sell-button-rate-value"]').text().trim();
         let buyPrice = $(buyBtnEl).find('[automation-id="buy-sell-button-rate-value"]').text().trim();
         let spreadPrice = Number(buyPrice) - Number(sellPrice);
         let spreadPercent = (spreadPrice / sellPrice) * 100;
-        this.addSpreadTextElement($(rowElement).find(".buy-sell-buttons"), spreadPrice, spreadPercent);
+        this.addSpreadTextElement($(rowElement).find(".et-table-body-slot"), spreadPrice, spreadPercent);
       }
     } else {
       let cardElementList = $('[automation-id="watchlist-grid-instruments-list"]');
@@ -53,11 +54,11 @@ export default class SpreadClient {
   }
 
   initialPortfolioOverview() {
-    let tabletRowEls = $('.ui-table-row-container');
+    let tabletRowEls = $('.ui-table-row');
     for (let el of tabletRowEls) {
-      let cellNameEl = $(el).find('.ui-table-static-cell');
-      let sellBtnEl = $(el).find('.etoro-sell-button');
-      let buyBtnEl = $(el).find('.etoro-buy-button');
+      let cellNameEl = $(el).find(".table-static-cell-info");
+      let sellBtnEl = $(el).find('[automation-id="buy-sell-button-container-sell"]');
+      let buyBtnEl = $(el).find('[automation-id="buy-sell-button-container-buy"]');
       if (!sellBtnEl[0] || !buyBtnEl[0])
         return;
 
@@ -99,12 +100,10 @@ export default class SpreadClient {
 
   addHeaderLabel() {
     if ($("[automation-id=\"watchlist-list-title-spread\"]").length === 0) {
-      let attr = $(".cell-spacing")[0].attributes[0].name;
-      let parent = $(".buy-sell-row-cell");
+      let parent = $(".et-table-head-slot");
       parent.append(`
-    <span ${attr} class="cell-spacing spread-helper"></span>
-    <span automation-id="watchlist-list-title-spread" class="spread-helper"> Spread </span>
-    `);
+      <span automation-id="watchlist-list-title-spread" class="spread-helper"> Spread </span>
+      `);
     }
   }
 
@@ -126,4 +125,3 @@ export default class SpreadClient {
     $('.spread-helper').remove();
   }
 }
-

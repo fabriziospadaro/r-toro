@@ -1,8 +1,11 @@
 import _ from 'lodash';
+import { enabledModules } from '../config/config';
+import castValue from './utils';
 
 const nest = ([x, ...xs], o = {}) =>
   xs.length === 0 ? x : (o[x] = nest(xs, o[x]), o);
 const valueToStore = [];
+
 
 export default class StoreClient {
   constructor() {
@@ -12,20 +15,15 @@ export default class StoreClient {
     this.afterSet = [];
   }
 
-  get(keys) {
-    let raw = this.settings[this.k + keys.join(".")];
-    if (isNaN(+raw) === false)
-      return +raw;
-    else if (raw === "false" || raw === "true")
-      return raw === "true";
-    else
-      return raw;
+  get(keys, castType = null) {
+    let joinedKeys = keys.join(".");
+    let raw = this.settings[this.k + joinedKeys];
+    return castValue(raw, castType);
   }
+
   set(keys, value) {
     let key = keys.join(".");
-    console.log(key + " " + value);
     this.settings[this.k + key] = value;
-    console.log(this.settings[this.k + key]);
     localStorage.setItem(this.k + key, value);
     for (let i = 0; i < this.afterSet.length; i++)
       this.afterSet[i]();
@@ -64,4 +62,11 @@ export default class StoreClient {
     return lastDigged;
   }
   */
+}
+
+const client = new StoreClient();
+for (let m of enabledModules) {
+  if (client.get([m, "enabled"], null) == undefined) {
+    client.set([m, "enabled"], true)
+  }
 }

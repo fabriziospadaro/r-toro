@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import "../stylesheets/tagLimit.scss"
 import { useState } from "react";
 import StoreManager from "../../libs/StoreManager";
+import { DEF_TAG_LIMIT } from "../../validators/post_validators/tagLimitValidator";
+
 export default function TagLimit() {
-  const [maxTags, setmaxTags] = useState(4);
+  const [maxTags, setmaxTags] = useState(DEF_TAG_LIMIT);
 
   useEffect(() => {
-    StoreManager.get(["feedSettings", "tagSettings", "max"]).then((tags) => {
-      let tagCount = parseInt(tags);
-      tagCount = isNaN(tagCount) ? 5 : tagCount;
-      setmaxTags(tagCount);
+    StoreManager.get(["feedSettings", "tagSettings", "max"], Number).then((tags) => {
+      let tagCount = !tags ? DEF_TAG_LIMIT : tags;
+      setmaxTags(parseInt(tagCount));
     });
   }, [])
   function increaseMaxTags() {

@@ -1,64 +1,66 @@
-et-instrument-trading-row div.etoro-helper-price {
-	left: 5px;
-	background-color: #f1f1f1;
-	border-radius: 5px;
-	position: relative;
-	white-space: pre-line;
-	min-width: 60px;
-	text-align: center;
+.table-static-cell-info div.etoro-helper-price {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  position: relative;
+  white-space: pre-line;
+  text-align: center;
+  left: 0;
+  width: max-content;
+  min-width: 112px;
 }
 
 et-instrument-card div.etoro-helper-price {
-	margin-top: 4px;
-	width: 100%;
-	border: 1px solid #f1f1f1;
-	padding-top: 20px;
-	text-align: center;
-	border-radius: 5px;
-	padding-top: 25px;
-	white-space: " - ";
-	padding-bottom: 5px;
-	font-size: 14px;
-}
-et-instrument-card div.etoro-helper-price::before {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 20px;
-	background-color: #54626e;
-	content: "SPREAD";
-	text-align: center;
-	color: white;
-	font-weight: 600;
-	padding-top: 2px;
-	font-size: 12px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+  margin-top: 4px;
+  width: 100%;
+  border: 1px solid #f1f1f1;
+  padding-top: 20px;
+  text-align: center;
+  border-radius: 5px;
+  padding-top: 25px;
+  white-space: " - ";
+  padding-bottom: 5px;
+  font-size: 14px;
 }
 
-.ui-table-row div.etoro-helper-price{
-	text-align: center;
-	width: 50%;
-	border: 1px solid #f1f1f1;
-	border-radius: 4px;
-	padding: 2px;
-	border-top-left-radius: 0;
+et-instrument-card div.etoro-helper-price::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #54626e;
+  content: "SPREAD";
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  padding-top: 2px;
+  font-size: 12px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.et-table-body-slot div.etoro-helper-price {
+  text-align: center;
+  width: auto;
+  border: 1px solid #f1f1f1;
+  border-radius: 4px;
+  padding: 2px;
+  border-top-left-radius: 0;
 }
 
 div.etoro-helper-price {
-	position: relative;
-	font-weight: bold;
-	font-size: 12px;
-	color: black;
+  position: relative;
+  font-weight: bold;
+  font-size: 12px;
+  color: black;
 }
 
 div.etoro-helper-price.need-update-up {
-	color:red !important;
+  color: red !important;
 }
 
 div.etoro-helper-price.need-update-down {
-	color:green !important;
+  color: green !important;
 }
 
 $soft-dark: #31364a;
@@ -68,341 +70,590 @@ $super-dark: #131726;
 $softer-white: #d0d0d0;
 
 
-body.privacy--mode{
-	.my-portfolio-overview-timeframe-change,.total-account-value,
-	.total-account-change,.amount-value,
-	.summary-bar-container,.footer-unit-value,
-	[data-etoro-automation-id="portfolio-overview-table-cell-container-invested"],
-	[data-etoro-automation-id="portfolio-overview-table-cell-container-container-profit"],
-	[data-etoro-automation-id="open-trades-table-body-cell-amount"],
-	[data-etoro-automation-id="portfolio-open-trades-table-body-cell-container-profit-dollar"],
-	[data-etoro-automation-id="detailed-view-header-details-profit-value"],
-	[data-etoro-automation-id="detailed-view-header-details-equity-value"],
-	[data-etoro-automation-id="detailed-view-header-details-instrument-invested-value"],
-	[automation-id="summary-bar-container"],
-	[automation-id="my-investments-tooltip-total-equity"],
-	[automation-id="my-investments-tooltip-total-invested"],
-	[automation-id="my-investments-tooltip-invested-pl"],
-	[data-etoro-automation-id="portfolio-overview-table-cell-container-equity"],
+body.privacy--mode {
+
+  .my-portfolio-overview-timeframe-change,
+  .total-account-value,
+  .total-account-change,
+  .amount-value,
+  .summary-bar-container,
+  .footer-unit-value,
+  [data-etoro-automation-id="portfolio-overview-table-cell-container-invested"],
+  [data-etoro-automation-id="portfolio-overview-table-cell-container-container-profit"],
+  [data-etoro-automation-id="open-trades-table-body-cell-amount"],
+  [data-etoro-automation-id="portfolio-open-trades-table-body-cell-container-profit-dollar"],
+  [data-etoro-automation-id="detailed-view-header-details-profit-value"],
+  [data-etoro-automation-id="detailed-view-header-details-equity-value"],
+  [data-etoro-automation-id="detailed-view-header-details-instrument-invested-value"],
+  [automation-id="summary-bar-container"],
+  [automation-id="my-investments-tooltip-total-equity"],
+  [automation-id="my-investments-tooltip-total-invested"],
+  [automation-id="my-investments-tooltip-invested-pl"],
+  [data-etoro-automation-id="portfolio-overview-table-cell-container-equity"],
   [data-etoro-automation-id="portfolio-manual-trades-table-body-cell-container-invested"],
   [data-etoro-automation-id="portfolio-manual-trades-table-body-cell-container-profit"],
   [data-etoro-automation-id="portfolio-manual-trades-table-body-cell-container-units"],
-  [data-etoro-automation-id="portfolio-overview-table-body-cell-units-value"]
-	{
-		filter: blur(10px);
-	}
-	.highcharts-container{
-		span{
-			filter: blur(10px);
-		}
-	}
+  [data-etoro-automation-id="portfolio-overview-table-body-cell-units-value"] {
+    filter: blur(10px);
+  }
+
+  .highcharts-container {
+    span {
+      filter: blur(10px);
+    }
+  }
 
 }
 
 
-body.dark--mode{
-	background-color: $super-dark !important;
-	.watchlist-card-add, et-instrument-card, .plus-icon, .equal-icon,
-	.footer-border, .watchlist-header, et-account-balance, .ticker-swiper,
-	.bottom-menu-wrap, .feed-social-wrap, .my-portfolio-overview-wrap,
-	.account-overview-details, .post-item, .post-social-counters,
-	.home-feed-card, .labels-container, .select-scroll-up,.ui-table-head,
-	.inner-header,.etoro-price-value,.watchlist-grid-resolution-btn,
-	.my-investments-widget,.w-instrument-invested-stats-head-action,
-	.user-market-head,.instrument-navigation,.user-post-dropper,.trade-button-title,
-  et-user-bio-widget, et-card,et-card-footer,
-  et-market-social-info,.asset-types__wrapper,.top-mover-item, .sw-card-background,
-  .main-content .card-container,.filters-section,.user-head,.inner-menu,
-  .user-post-dropper et-select-header,.current-num-outline,.num-outline,
-  .w-portfolio-table-hat,.bar-wrap
-	{
-		background-color: $soft-dark !important;
-	}
+body.dark--mode {
+  background-color: $super-dark !important;
 
-	.list-row-title, .et-button-secondary, .primary-btn, et-layout-header,
-	.ticker-wrap,.feed-pinned-post-item
-	{
-		background-color: $softer-dark !important;
-	}
+  .watchlist-card-add,
+  et-instrument-card,
+  .plus-icon,
+  .equal-icon,
+  .footer-border,
+  .watchlist-header,
+  et-account-balance,
+  .ticker-swiper,
+  .bottom-menu-wrap,
+  .feed-social-wrap,
+  .my-portfolio-overview-wrap,
+  .account-overview-details,
+  .post-item,
+  .post-social-counters,
+  .home-feed-card,
+  .labels-container,
+  .select-scroll-up,
+  .ui-table-head,
+  .inner-header,
+  .etoro-price-value,
+  .watchlist-grid-resolution-btn,
+  .my-investments-widget,
+  .w-instrument-invested-stats-head-action,
+  .user-market-head,
+  .instrument-navigation,
+  .user-post-dropper,
+  .trade-button-title,
+  et-user-bio-widget,
+  et-card,
+  et-card-footer,
+  et-market-social-info,
+  .asset-types__wrapper,
+  .top-mover-item,
+  .sw-card-background,
+  .main-content .card-container,
+  .filters-section,
+  .user-head,
+  .inner-menu,
+  .user-post-dropper et-select-header,
+  .current-num-outline,
+  .num-outline,
+  .w-portfolio-table-hat,
+  .bar-wrap {
+    background-color: $soft-dark !important;
+  }
 
-	.prices, .my-portfolio-overview-timeframe-change,
-	.time-period.selected,.performance-chart-info,.top-mover-item:hover,.blue-btn:hover,
-  .translation-container
-	{
-		background-color: $middle-dark !important;
-	}
+  .list-row-title,
+  .et-button-secondary,
+  .primary-btn,
+  et-layout-header,
+  .ticker-wrap,
+  .feed-pinned-post-item,
+  ui-table-head,
+  .feed-post-sidebar-widget.mentioned,
+  .feed-post-sidebar-widget.social-shared-widget {
+    background-color: $softer-dark !important;
+  }
 
-	.watchlist-row-add, et-instrument-row,
-	.instrument-card-container, .order-flex, .post-talkbox-textarea,
-	.post-item-trade-action-footer, .post-item-trade-action-head,
-	button:disabled, [automation-id="trading-autocomplete-input"],
-	et-instruments-ticker, .card-container,.ui-table-row,
-	.social-replies-wrap,et-instrument-card .trade-button-title,
-  .performance-chart-hat,.main-content,.sw-wrapper,
-  .et-n-table-row,.new-updates,
-  .sw-tag-wrap .sw-item-tag,.blue-btn,.watchlists-edit,
-  .discovery-tag-wrapper et-select-header
-	{
-		background-color: $super-dark !important;
-	}
-	
-	.price, .list-row-title-cell, .icon-moon, .header-text, .symbol,.equity,
-	.icon-drop-menu-dots, .instrument-symbol, .posts-title, .posts-amount,
-	.social-item-link, et-showhide, .time-period.selected, .icon-link,
-	.menu-button, .post-talkbox-textarea, .social-comment-wrap,.et-font-s,
-	.instrument-num-price, .et-link, .total-account-value, body,
-	.et-color-black, .et-bolder, .item-name, .trending-title,.widget-title
-	et-in-app-notifications, .post-attachment-content,.et-font-xl,
-	[automation-id="account-balance-availible-unit-value"],.sortable
-	[automation-id="account-balance-amount-unit-value"], .table-tab-item,
-	[automation-id="account-balance-amount-total"], .table-tab-title,
-	.my-portfolio-overview-greet, .header-notification-icon,
-	.portfolio-inner-header-icon,.table-first-name,.ui-table-head,
-	[automation-id="buy-sell-button-rate-value"],[itemprop="name"],
-	[data-etoro-automation-id="portfolio-manual-trades-table-body-cell-container-invested"],
-	[data-etoro-automation-id="portfolio-manual-trades-table-body-cell-container-units"],
-	[data-etoro-automation-id="portfolio-manual-trades-table-body-cell-container-open-rate"],
-	.watchlist-grid-resolution-btn,.my-investments-widget-value,
-	.my-investments-widget-data-label,.my-investments-widget-stats-name,
-	[automation-id="my-investments-tooltip-total-invested"],
-	.user-market-nickname,.head-info-stats-value,.risk,
-	.feed-post-pinned-title, .post-edit-icon, .feed-pinned-post-item,
-	[automation-id="account-balance-amount-unit"],.et-n-table-head,
-  .instrument-widget-title,.user-risk-text,.widget-label,
-  .et-h2,.user-nickname, .instrument-navigation-link-top-name,
-  .performance-chart-risk-level .info,.performance-chart-risk-level .title,
-  .performance-percent span,.widget-title,.widget-value,
-  .featured-markets-title,.sw-title,.filters-section,.paging-bold,
-  .discovery-search-results-ph,.market-stats-item et-card-content,
-  .market-stats-item et-card-content h3,.time-part-disclaimer a,
-  .overview .overview-item strong,.num-outline,.widget-tag,
-  .performance-chart-hat .performance-chart-slot, .performance-chart-slot.year, .performance-chart-slot.amount:nth-child(1),
-  .watchlist-row-add,.current-num-outline,.price-range,.share-button,.i-instrument-navigation-item.active,
-  .i-instrument-navigation-item.e-link:hover>.i-instrument-navigation-item-label,.discovery-container a,
-  .watchlists-edit:hover::after,.widget-view-more,.blue-btn,
-  [automation-id="market-about-widget-disclaimer"],.widget-label span,.widget-smaller-value,
-  .portfolio-inner-header-back-text,.i-portfolio-table-hat-symbol,
-  .portfolio-header-right-nav a:hover,.portfolio-inner-header-back-button:hover,
-  ui-table-head .ui-table-static-cell.sort:hover, ui-table-head ui-table-cell.sort:hover,
+  .prices,
+  .my-portfolio-overview-timeframe-change,
+  .time-period.selected,
+  .performance-chart-info,
+  .top-mover-item:hover,
+  .blue-btn:hover,
+  .translation-container,
+  .progress-container,
+  .market-event-item-container,
+  .more-info-button {
+    background-color: $middle-dark !important;
+  }
+
+  .watchlist-row-add,
+  et-instrument-row,
+  .instrument-card-container,
+  .order-flex,
+  .post-talkbox-textarea,
+  .post-item-trade-action-footer,
+  .post-item-trade-action-head,
+  button:disabled,
+  [automation-id="trading-autocomplete-input"],
+  et-instruments-ticker,
+  .card-container,
+  .ui-table-row,
+  .social-replies-wrap,
+  et-instrument-card .trade-button-title,
+  .performance-chart-hat,
+  .main-content,
+  .sw-wrapper,
+  .et-n-table-row,
+  .new-updates,
+  .sw-tag-wrap .sw-item-tag,
+  .blue-btn,
+  .watchlists-edit,
+  .discovery-tag-wrapper et-select-header,
+  .et-table-row,
+  .et-table-row-main,
+  .et-table-head,
+  .profile-bottom {
+    background-color: $super-dark !important;
+  }
+
+  .price,
+  .list-row-title-cell,
+  .icon-moon,
+  .header-text,
+  .symbol,
+  .equity,
+  .icon-drop-menu-dots,
+  .instrument-symbol,
+  .posts-title,
+  .posts-amount,
+  .social-item-link,
+  et-showhide,
+  .time-period.selected,
+  .icon-link,
+  .menu-button,
+  .post-talkbox-textarea,
+  .social-comment-wrap,
+  .et-font-s,
+  .instrument-num-price,
+  .et-link,
+  .total-account-value,
+  body,
+  .et-color-black,
+  .et-bolder,
+  .item-name,
+  .trending-title,
+  .widget-title et-in-app-notifications,
+  .post-attachment-content,
+  .et-font-xl,
+  [automation-id="account-balance-availible-unit-value"],
+  .sortable [automation-id="account-balance-amount-unit-value"],
+  .table-tab-item,
+  [automation-id="account-balance-amount-total"],
+  .table-tab-title,
+  .my-portfolio-overview-greet,
+  .header-notification-icon,
+  .portfolio-inner-header-icon,
+  .table-first-name,
+  .ui-table-head,
+  [automation-id="buy-sell-button-rate-value"],
+  [itemprop="name"],
+  [data-etoro-automation-id="portfolio-manual-trades-table-body-cell-container-invested"],
+  [data-etoro-automation-id="portfolio-manual-trades-table-body-cell-container-units"],
+  [data-etoro-automation-id="portfolio-manual-trades-table-body-cell-container-open-rate"],
+  .watchlist-grid-resolution-btn,
+  .my-investments-widget-value,
+  .my-investments-widget-data-label,
+  .my-investments-widget-stats-name,
+  [automation-id="my-investments-tooltip-total-invested"],
+  .user-market-nickname,
+  .head-info-stats-value,
+  .risk,
+  .feed-post-pinned-title,
+  .post-edit-icon,
+  .feed-pinned-post-item,
+  [automation-id="account-balance-amount-unit"],
+  .et-n-table-head,
+  .instrument-widget-title,
+  .user-risk-text,
+  .widget-label,
+  .et-h2,
+  .user-nickname,
+  .instrument-navigation-link-top-name,
+  .performance-chart-risk-level .info,
+  .performance-chart-risk-level .title,
+  .performance-percent span,
+  .widget-title,
+  .widget-value,
+  .featured-markets-title,
+  .sw-title,
+  .filters-section,
+  .paging-bold,
+  .discovery-search-results-ph,
+  .market-stats-item et-card-content,
+  .market-stats-item et-card-content h3,
+  .time-part-disclaimer a,
+  .overview .overview-item strong,
+  .num-outline,
+  .widget-tag,
+  .performance-chart-hat .performance-chart-slot,
+  .performance-chart-slot.year,
+  .performance-chart-slot.amount:nth-child(1),
+  .watchlist-row-add,
+  .current-num-outline,
+  .price-range,
+  .share-button,
+  .i-instrument-navigation-item.active,
+  .i-instrument-navigation-item.e-link:hover>.i-instrument-navigation-item-label,
+  .discovery-container a,
+  .watchlists-edit:hover::after,
+  .widget-view-more,
+  .blue-btn,
+  [automation-id="market-about-widget-disclaimer"],
+  .widget-label span,
+  .widget-smaller-value,
+  .portfolio-inner-header-back-text,
+  .i-portfolio-table-hat-symbol,
+  .portfolio-header-right-nav a:hover,
+  .portfolio-inner-header-back-button:hover,
+  ui-table-head .ui-table-static-cell.sort:hover,
+  ui-table-head ui-table-cell.sort:hover,
   .title.inner-header-nav-button.dropdown-menu:hover,
-  .new-updates .ng-star-inserted, .feed-info span
-	{
-		color: white !important;
-	}
+  .new-updates .ng-star-inserted,
+  .feed-info span,
+  .et-big-num,
+  .head-title,
+  .et-n-table-body,
+  .header-amount .amount,
+  .user-fullname-bold,
+  .market-events-title,
+  .et-link-view-all,
+  .date-container .event-date,
+  .i-portfolio-table-name,
+  .i-portfolio-table-hat-cell-value,
+  .i-portfolio-table-header-cell-value,
+  .user-info,
+  ui-table-body-slot,
+  .more-info-button,
+  ui-table-head,
+  .top-trade-row .top-trade-topic,
+  .top-trade-profit-procent,
+  .performance-num,
+  .details span,
+  .spread-helper,
+  .feed-post-sidebar-widget-title,
+  .feed-post-sidebar-widget.social-shared-widget .feed-post-sidebar-widget-title {
+    color: white !important;
+  }
 
-	.icon-portfolio, .change, .resolution-arrow-up, .resolution-arrow-down,
-	.toggle-resolution-wrap, .instrument-list-pie-link, .footer-unit-label,
-	[automation-id="top-movers-market-symbol"], .et-font-xxs,
-	.post-talkbox-control-counter, .et-h3, .post-item-text-info,
-	.post-attachment-content-description, .et-color-dark-grey, .percentage,
-	.instrument-lest, .et-icon-arrow-end, .et-icon-arrow-start,
-	.user-location, .post-timestamp, .post-item-link, .time-period,
-	.today-label, .portfolio-type-title, .label, .instrument-name,
-	.table-last-name,.my-investments-widget-stats-label,
-	.head-info-disclaimer,.user-market-fullname,.like-counter,
-  .instrument-widget-social-country,.social-disclaimer,
-  .widget-bottom-label,.user-fullname,.show-more-comments,
-  .show-more-replies-wrap,.icon-user-liking::before,
-  .user-post-title,.hide-replies-text,.post-talkbox span,
-  .performance-percent,.info-procents,.placeholder-text,
+  .icon-portfolio,
+  .change,
+  .resolution-arrow-up,
+  .resolution-arrow-down,
+  .toggle-resolution-wrap,
+  .instrument-list-pie-link,
+  .footer-unit-label,
+  [automation-id="top-movers-market-symbol"],
+  .et-font-xxs,
+  .post-talkbox-control-counter,
+  .et-h3,
+  .post-item-text-info,
+  .post-attachment-content-description,
+  .et-color-dark-grey,
+  .percentage,
+  .instrument-lest,
+  .et-icon-arrow-end,
+  .et-icon-arrow-start,
+  .user-location,
+  .post-timestamp,
+  .post-item-link,
+  .time-period,
+  .today-label,
+  .portfolio-type-title,
+  .label,
+  .instrument-name,
+  .table-last-name,
+  .my-investments-widget-stats-label,
+  .head-info-disclaimer,
+  .user-market-fullname,
+  .like-counter,
+  .instrument-widget-social-country,
+  .social-disclaimer,
+  .widget-bottom-label,
+  .user-fullname,
+  .show-more-comments,
+  .show-more-replies-wrap,
+  .icon-user-liking::before,
+  .user-post-title,
+  .hide-replies-text,
+  .post-talkbox span,
+  .performance-percent,
+  .info-procents,
+  .placeholder-text,
   .sw-subtitle,
   [data-etoro-automation-id="portfolio-open-trades-table-body-cell-container-amount"],
   [data-etoro-automation-id="portfolio-open-trades-table-body-cell-container-units"],
   [data-etoro-automation-id="portfolio-open-trades-table-body-cell-container-open-rate"],
-  .et-instrument-icon-info__description,.watchlists-edit:after,.pager-list .grey,
-  .avatar-info .name, .bar-info .status,
+  .et-instrument-icon-info__description,
+  .watchlists-edit:after,
+  .pager-list .grey,
+  .avatar-info .name,
+  .bar-info .status,
   .head-breadcrumbs .crumb-item .crumb::after,
-  .i-portfolio-table-hat-fullname,.portfolio-header-right-nav a,
-  .portfolio-inner-header-back-button,ui-table-head .ui-table-static-cell.sort, ui-table-head ui-table-cell.sort,
-  .title.inner-header-nav-button.dropdown-menu
-	{
-		color: $softer-white !important;
-	}
+  .i-portfolio-table-hat-fullname,
+  .portfolio-header-right-nav a,
+  .portfolio-inner-header-back-button,
+  ui-table-head .ui-table-static-cell.sort,
+  ui-table-head ui-table-cell.sort,
+  .title.inner-header-nav-button.dropdown-menu,
+  .anonymous-user,
+  .say-hi,
+  .stats-colum,
+  .time-text,
+  .event-info-text,
+  .day-rate,
+  .et-navigation-buttons button::before,
+  .i-portfolio-table-hat-cell-label,
+  .i-portfolio-table-cell-inner-date,
+  .performance-trads-details-list .details,
+  .top-trade-row .top-trade-topic span,
+  .performance-menu .title,
+  .performance-chart-copy .info,
+  .performance-chart-copy,
+  .performance-amount,
+  .i-instrument-navigation-item-label {
+    color: $softer-white !important;
+  }
 
-	.account-overview-wrap{
-		background-color: transparent !important;
-	}
+  .account-overview-wrap,
+  .corners {
+    background-color: transparent !important;
+  }
 
-	et-layout-header, .new-post-section{
-		border-bottom-color: $middle-dark !important;
-	}
+  et-layout-header,
+  .new-post-section,
+  ui-table-head,
+  .sidebar-widget {
+    border-bottom-color: $middle-dark !important;
+  }
 
-	.ticker-wrap::before{
-		background-image: linear-gradient(to left,#ffffff00,$super-dark) !important;
-	}
+  .ticker-wrap::before {
+    background-image: linear-gradient(to left, #ffffff00, $super-dark) !important;
+  }
 
-	.ticker-wrap::after{
-		background-image: linear-gradient(to right,#ffffff00,$super-dark) !important;
-	}
+  .ticker-wrap::after {
+    background-image: linear-gradient(to right, #ffffff00, $super-dark) !important;
+  }
 
-	.et-instrument-row, .ui-table-row{
-		border-bottom: 1px solid $soft-dark !important;
-	}
+  .et-instrument-row,
+  .ui-table-row {
+    border-bottom: 1px solid $soft-dark !important;
+  }
 
-	.footer-border{
-		border-top: $soft-dark !important;
-	}
+  .footer-border {
+    border-top: $soft-dark !important;
+  }
 
-	.price, .instrument-card-container{
-		border: 1px solid $middle-dark !important;
-	}
-	.instrument-card-container{
-		border: 1px solid #626262a1 !important
-	}
+  .price,
+  .instrument-card-container {
+    border: 1px solid $middle-dark !important;
+  }
 
-  .colored-bar-chart,.positive-wrap-bg, .negative-wrap-bg,.et-n-table-row,
-  .et-n-table-head
-  {
+  .instrument-card-container {
+    border: 1px solid #626262a1 !important
+  }
+
+  .colored-bar-chart,
+  .positive-wrap-bg,
+  .negative-wrap-bg,
+  .et-n-table-row,
+  .et-n-table-head,
+  .et-table-row,
+  .et-table-head,
+  .et-table-row-main {
     border-color: $soft-dark !important;
   }
-	.et-vertical-divider,.table-tab-item,.etoro-price-value,.i-performance-chart-bar,
-  .inner-menu,.user-head,.menu-item-button:before
-  {
-		border-color: $middle-dark !important;
-	}
-	.ui-table-head,.inner-header,.widget-list-item, .widget-view-more,
-  .i-portfolio-table-hat-cell.inner-card-view,.w-portfolio-table-hat
-  {
-		border-color: $super-dark !important;
-	}
-	.resolution-arrow-up, .resolution-arrow.arrow-up{
-		border-bottom-color: white !important;
-	}
-	.resolution-arrow-down, .resolution-arrow.arrow-down{
-		border-top-color: white !important;
-	}
 
-	[data-etoro-automation-id="portfolio-overview-table-cell-container-units"],
-	[data-etoro-automation-id="portfolio-overview-table-cell-container-open-rate"],
-	[data-etoro-automation-id="portfolio-overview-table-cell-container-invested"],
-	[data-etoro-automation-id="portfolio-overview-table-cell-container-equity"]
-	.ng-binding,
+  .et-vertical-divider,
+  .table-tab-item,
+  .etoro-price-value,
+  .i-performance-chart-bar,
+  .inner-menu,
+  .user-head,
+  .menu-item-button:before {
+    border-color: $middle-dark !important;
+  }
+
+  .ui-table-head,
+  .inner-header,
+  .widget-list-item,
+  .widget-view-more,
+  .i-portfolio-table-hat-cell.inner-card-view,
+  .w-portfolio-table-hat {
+    border-color: $super-dark !important;
+  }
+
+  .resolution-arrow-up,
+  .resolution-arrow.arrow-up {
+    border-bottom-color: white !important;
+  }
+
+  .resolution-arrow-down,
+  .resolution-arrow.arrow-down {
+    border-top-color: white !important;
+  }
+
+  [data-etoro-automation-id="portfolio-overview-table-cell-container-units"],
+  [data-etoro-automation-id="portfolio-overview-table-cell-container-open-rate"],
+  [data-etoro-automation-id="portfolio-overview-table-cell-container-invested"],
+  [data-etoro-automation-id="portfolio-overview-table-cell-container-equity"] .ng-binding,
   ui-table-body a,
-  .translation-container
-  {
-		color: white;
-	}
-
-	.e-btn.light{
-		color: white;
-		background-color: $softer-dark;
-	}
-	.etoro-trade-button.disabled .etoro-price-value{
-		background-color: #7c8090 !important;
-	}
-
-	et-instrument-card div.etoro-helper-price {
-		border: 0;
-		color: white;
-		background-color:  #252a3d !important;
-	}
-	et-instrument-card div.etoro-helper-price::before {
-		position: absolute;
-		background-color: $super-dark !important;
-	}
-	et-instrument-trading-row div.etoro-helper-price {
-		background-color: $middle-dark;
-		color: white;
-	}
-	.ui-table-row div.etoro-helper-price{
-		color: white;
-		border: 0;
-		background-color: $middle-dark;
-	}
-  .top-bar-bg{
-    background-image: linear-gradient(to top,$softer-dark,$soft-dark) !important;
+  .translation-container {
+    color: white;
   }
-  .bottom-bar-bg{
-    background-image: linear-gradient(to bottom,$softer-dark,$soft-dark) !important;
+
+  .e-btn.light {
+    color: white;
+    background-color: $softer-dark;
   }
-  .user-social-info-widget{
+
+  .etoro-trade-button.disabled .etoro-price-value {
+    background-color: #7c8090 !important;
+  }
+
+  et-instrument-card div.etoro-helper-price {
+    border: 0;
+    color: white;
+    background-color: #252a3d !important;
+  }
+
+  et-instrument-card div.etoro-helper-price::before {
+    position: absolute;
+    background-color: $super-dark !important;
+  }
+
+  .table-static-cell-info div.etoro-helper-price {
+    background-color: $middle-dark;
+    color: white;
+  }
+
+  .et-table-body-slot div.etoro-helper-price {
+    color: white;
+    border: 0;
+    background-color: $middle-dark;
+  }
+
+  .top-bar-bg {
+    background-image: linear-gradient(to top, $softer-dark, $soft-dark) !important;
+  }
+
+  .bottom-bar-bg {
+    background-image: linear-gradient(to bottom, $softer-dark, $soft-dark) !important;
+  }
+
+  .user-social-info-widget {
     background-color: $soft-dark;
     border-radius: 5px;
     color: white;
   }
-  .show-more-replies-text::before,  .hide-replies-text::before, .info-point,
-  .menu-item-button .sprite, .menu-item-button .social-sprite,
-  .i-instrument-navigation-item-icon,.market-clock-icon,.widget-clock-icon,
-  .i-ptc-action.edit .i-ptc-action-icon,.i-ptc-action.stop .i-ptc-action-icon,
-  .e-btn.light.edit-extended .i-ptc-action-icon.sprite,.sort.down .sort-arrow,.sort.up .sort-arrow,
+
+  .show-more-replies-text::before,
+  .hide-replies-text::before,
+  .info-point,
+  .menu-item-button .sprite,
+  .menu-item-button .social-sprite,
+  .i-instrument-navigation-item-icon,
+  .market-clock-icon,
+  .widget-clock-icon,
+  .i-ptc-action.edit .i-ptc-action-icon,
+  .i-ptc-action.stop .i-ptc-action-icon,
+  .e-btn.light.edit-extended .i-ptc-action-icon.sprite,
+  .sort.down .sort-arrow,
+  .sort.up .sort-arrow,
   .title.inner-header-nav-button.dropdown-menu .drop-label-icon,
-  .filter .sprite, .icon .allocation
-  {
+  .filter .sprite,
+  .icon .allocation {
     filter: brightness(0) invert(1);
   }
-  .social-replies-wrap{
+
+  .social-replies-wrap {
     border-radius: 5px;
-    et-select-header{
+
+    et-select-header {
       background-color: transparent !important;
     }
   }
 
-  .feed-pinned-post-item et-select-header{
+  .feed-pinned-post-item et-select-header {
     background-color: transparent !important;
   }
-  et-post .et-link{
+
+  et-post .et-link {
     color: $softer-white !important;
   }
-  
-  .post-talkbox-control-counter{
+
+  .post-talkbox-control-counter {
     opacity: 1 !important;
   }
-  .risk-chart{
+
+  .risk-chart {
     background-color: $softer-dark !important;
     border-color: $middle-dark !important;
   }
 
-  .top-mover-item{
+  .top-mover-item {
     border-radius: 0 !important;
   }
-  et-market-stats{
-    svg tspan,svg text{
+
+  et-market-stats {
+
+    svg tspan,
+    svg text {
       fill: white;
     }
-    svg path:nth-child(1){
+
+    svg path:nth-child(1) {
       fill: $super-dark;
     }
   }
+
   .et-positive {
     color: #3dae23 !important;
   }
-  .et-negative{
+
+  .et-negative {
     color: #e8464a !important;
   }
-  #market-stats-financial-chart .highcharts-background{
+
+  #market-stats-financial-chart .highcharts-background {
     fill: $super-dark !important;
   }
 
-  .measure-arrow{
+  .measure-arrow {
     border-top-color: white !important;
   }
 
-  .i-instrument-navigation-item.active::after{
+  .i-instrument-navigation-item.active::after {
     background-color: white !important;
     border-color: white !important;
   }
 
-  .discovery-tag-wrapper et-select-header, .user-post-dropper et-select et-select-header::after{
+  .discovery-tag-wrapper et-select-header,
+  .user-post-dropper et-select et-select-header::after {
     border-color: white !important;
   }
 
   .list-row-title-cell.sort.down:after {
     border-color: white transparent transparent !important;
   }
-  .list-row-title-cell.sort.up:after{
+
+  .list-row-title-cell.sort.up:after {
     border-color: transparent transparent white !important;
   }
 
-  .i-portfolio-table-hat-cell.inner-card-view{
+  .i-portfolio-table-hat-cell.inner-card-view {
     color: white;
   }
 
-  .i-portfolio-table-header-cell-label{
+  .i-portfolio-table-header-cell-label {
     color: $softer-white;
   }
 
-  .w-portfolio-table-body-separator{
-    background-color:  $soft-dark !important;
+  .w-portfolio-table-body-separator {
+    background-color: $soft-dark !important;
     color: white !important;
     border-color: $softer-dark !important;
   }

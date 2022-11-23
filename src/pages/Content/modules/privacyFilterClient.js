@@ -1,4 +1,3 @@
-import $ from "../../Popup/jquery-3.2.1.min.js";
 export default class PrivacyFilterClient {
   constructor(storeClient) {
     this.storeClient = storeClient;
@@ -7,12 +6,12 @@ export default class PrivacyFilterClient {
   }
 
   censor() {
-    if (this.storeClient.get(["privacySetting", "enabled"]))
-      $("body").addClass("privacy--mode");
+    if (this.storeClient.get(["privacySetting", "enabled"], Boolean))
+      document.querySelector("body").classList.add("privacy--mode");
   }
 
   reset() {
-    $("body").removeClass("privacy--mode");
+    document.querySelector("body").classList.remove("privacy--mode");
   }
 }
 
